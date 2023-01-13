@@ -7,8 +7,8 @@ i{
     font-size: 150px;
     cursor: pointer;
     position: absolute;
-    top: 20%;
-    left: 80%;
+    top: 10%;
+    left: 90%;
     transform: translate(-50%, -50%);
 }
 h1{
