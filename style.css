@@ -19,10 +19,8 @@ h1{
     margin:0 auto;
     width:1000px;
 }
-
-
 .kdr{
     width:624px;
     height:832px;
-    background-image: url(kdr.png);
+    background-image: url(img/kdr.png);
 }
