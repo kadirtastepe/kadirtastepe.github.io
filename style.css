@@ -15,11 +15,8 @@ h1{
     font-size: 3em;
 }
 
-.wrapper{
-    margin:0 auto;
-    width:1000px;
-}
-.kdr{
+ 
+kdr{
     width:624px;
     height:832px;
     background-image: url(kdr.png);
