@@ -14,3 +14,10 @@ i{
 h1{
     font-size: 3em;
 }
+
+.kdr{
+    width:624px;
+    height:832px;
+    background-image: url(kdr.png);
+
+}
