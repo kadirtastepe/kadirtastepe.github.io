@@ -22,5 +22,8 @@ h1{
 .kdr{
     width:624px;
     height:832px;
-    background-image: url(img/kdr.png);
+    background-image: url(kdr.png);
+    background-size: 200%;
+    background-repeat: no-repeat;
+    background-position: center right;
 }
