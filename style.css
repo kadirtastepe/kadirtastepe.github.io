@@ -7,7 +7,7 @@ i{
     font-size: 100px;
     cursor: pointer;
     position: absolute;
-    top: 10%;
+    top: 7%;
     left: 90%;
     transform: translate(-50%, -50%);
 }
@@ -16,11 +16,4 @@ h1{
 }
 
  
-kdr{
-    width:624px;
-    height:832px;
-    background-image: url(kdr.png);
-    background-size: 200%;
-    background-repeat: no-repeat;
-    background-position: center right;
-}
+
