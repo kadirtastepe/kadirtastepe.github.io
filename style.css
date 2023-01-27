@@ -1,39 +1,19 @@
-[data-tab-content] {
-  display: none;
+body{
+    margin: 0%;
+    padding: 0%;
+    font-family: "Arial", Helvetica, sans-serif;
 }
-
-.active[data-tab-content] {
-  display: block;
+i{
+    font-size: 75px;
+    cursor: pointer;
+    position: absolute;
+    top: 7%;
+    left: 90%;
+    transform: translate(-50%, -50%);
 }
-
-body {
-  padding: 0;
-  margin: 0;
+body{
+    font-size: 2em;
 }
-
-.tabs {
-  display: flex;
-  justify-content: space-around;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  border-bottom: 1px solid black;
-}
-
-.tab {
-  cursor: pointer;
-  padding: 10px;
-}
-
-.tab.active {
-  background-color: #CCC;
-}
-
-.tab:hover {
-  background-color: #AAA;
-}
-
-.tab-content {
-  margin-left: 20px;
-  margin-right: 20px;
+h1{
+    font-size: 3em;
 }
