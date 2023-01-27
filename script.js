@@ -1,5 +1,7 @@
 const toggle = document.getElementById('toggleDark');
 const body = document.querySelector('body');
+const tabs = document.querySelectorAll('[data-tab-target]')
+const tabContents = document.querySelectorAll('[data-tab-content]')
 
 toggle.addEventListener('click', function(){
     this.classList.toggle('bi-moon');
@@ -12,11 +14,7 @@ toggle.addEventListener('click', function(){
         body.style.color = 'white';
         body.style.transition = '1s';
     }
-});
-
-const tabs = document.querySelectorAll('[data-tab-target]')
-const tabContents = document.querySelectorAll('[data-tab-content]')
-tabs.forEach(tab => {
+    tabs.forEach(tab => {
   tab.addEventListener('click', () => {
     const target = document.querySelector(tab.dataset.tabTarget)
     tabContents.forEach(tabContent => {
@@ -29,3 +27,7 @@ tabs.forEach(tab => {
     target.classList.add('active')
   })
 })
+});
+
+
+
