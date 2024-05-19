@@ -5,7 +5,10 @@
 body {
   background-image: url("background.png");  
   background-size: cover;  
-} 
+}
+    .frame {
+            border: 5px solid #555;
+        }
     .rotate-image {
        transform: rotate(-10deg);
        display: inline-block;
@@ -15,6 +18,7 @@ body {
        transform: rotate(10deg);
        display: inline-block;
        margin-top: 100px;
+       text-align: center;
 }   
 </style> 
     <meta charset="UTF-8">
@@ -138,12 +142,12 @@ href=https://raw.githubusercontent.com/kadirtastepe/ROOT_Examples/main/TGraph.cc
    <div id="The_Road_So_Far" class="tabcontent">
 
 <figure class="rotate-image">
-<img src="PSI2023.jpg" height='800' width='1200' align="center">
+<img src="PSI2023.jpg" height='800' width='1200' class="frame" align="center">
 <figcaption>Villigen, Switzerland 2023 - Paul Scherrer Institute</figcaption>
 </figure>
       
 <figure class="rotate-right">
-<img src="SU_group.png" height='800' width='1200' align="right">
+<img src="SU_group.png" height='800' width='1200' class="frame" align="right">
 <figcaption>Greifswald, Germany 2022 - Max Planck Institute IPP Summer University for Plasma Physics and Fusion Research</figcaption>
 </figure>
       
