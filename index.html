@@ -10,7 +10,7 @@ body {
        .frame {
             border: 10px solid #999;
         }
-    .rotate-image {
+    .rotate-left {
        transform: rotate(-8deg);
        margin-top: 100px;
 }    
@@ -29,7 +29,6 @@ body {
             margin-bottom: 20px;
         }
 div.polaroid {
- transform: rotate(-8deg);
   width: 80%;
 /*  background-color: white;*/
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -163,34 +162,33 @@ href=https://raw.githubusercontent.com/kadirtastepe/ROOT_Examples/main/TGraph.cc
    <div id="The_Road_So_Far" class="tabcontent">
 
 <div class="polaroid">
-  <img src="PSI2023.jpg" alt="5 Terre" style="width:100%">
+  <img src="PSI2023.jpg" alt="5 Terre" style="width:100%" class="rotate-left">
   <div class="container">
   <p>Villigen, Switzerland 2023 - Paul Scherrer Institute</p>
   </div>
 </div>
 
-      
-<figure class="rotate-image">
-<img src="PSI2023.jpg" height='800' width='1200' class="frame" align="left">
-<figcaption>Villigen, Switzerland 2023 - Paul Scherrer Institute</figcaption>
-</figure>
-      
-<figure class="rotate-right">
-<img src="SU_group.png" height='800' width='1200' class="frame" align="right">
-<figcaption>Greifswald, Germany 2022 - Max Planck Institute IPP Summer University for Plasma Physics and Fusion Research</figcaption>
-</figure>
-      
-<figure class="rotate-image">
-<img src="pfbu2020.png" height='800' width='1200' class="frame" align="left">
-<figcaption>Istanbul, Turkey 2020 - Istanbul University Computing Applications in Particle Physics Winter School </figcaption>
-</figure>        
-       <div style="height: 20px;"></div>
+<div class="polaroid">
+  <img src="SU_group.png" alt="5 Terre" style="width:100%" class="rotate-right">
+  <div class="container">
+  <p>Greifswald, Germany 2022 - Max Planck Institute IPP Summer University for Plasma Physics and Fusion Research</p>
+  </div>
+</div>
 
-<figure class="rotate-right">
-<img src="group_photo_2019.jpg" height='584' width='1168' class="frame" align="right">
-<figcaption>Krakow, Poland 2019 - Particle Physics Summer Student Programme (The Henryk Niewodniczański Institute of Nuclear Physics Polish Academy of Sciences).</figcaption>
-</figure>      
-      
+<div class="polaroid">
+  <img src="pfbu2020.png" alt="5 Terre" style="width:100%" class="rotate-left">
+  <div class="container">
+  <p>Istanbul, Turkey 2020 - Istanbul University Computing Applications in Particle Physics Winter School</p>
+  </div>
+</div>
+
+<div class="polaroid">
+  <img src="group_photo_2019.jpg" height='584' width='1168' style="width:100%" class="rotate-right">
+  <div class="container">
+  <p>Krakow, Poland 2019 - Particle Physics Summer Student Programme (The Henryk Niewodniczański Institute of Nuclear Physics Polish Academy of Sciences)</p>
+  </div>
+</div>      
+
        
 </div>
    <div id="Contact" class="tabcontent">
