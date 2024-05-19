@@ -7,6 +7,12 @@ body {
   /*background-size: cover;*/
    margin:25px;
 }
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
 div.polaroid {
   width: 80%;
   background-color: white;
@@ -40,6 +46,32 @@ div.polaroid:nth-child(4) {
   float: right;
   transform: rotate(8deg);
 }
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
       
 </style> 
     <meta charset="UTF-8">
@@ -57,7 +89,13 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.cs
     <h1>   Kadir Murat Tastepe  </h1>
     
     
-     <img src="IMG_1410sframe.jpg" height='600' width='600' align="right">
+   <div class="container">
+  <img src="IMG_1410sframe.jpg" alt="Avatar" class="image" height='600' width='600' align="right">
+  <div class="middle">
+    <div class="text">Kadir</div>
+  </div>
+     </div>
+  
         <!-- Tab links -->
 <div class="tab">
     <button class="tablinks" onclick="openCity(event, 'Biography')"><h2> About Me </h2> </button>
