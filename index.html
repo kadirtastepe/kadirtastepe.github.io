@@ -27,27 +27,17 @@ div.container {
   padding: 10px 20px;
 }
 /* Rotate the first polaroid */
-div.polaroid:nth-child(1) {
+div.polaroid:nth-child(odd) {
   float: left;
   transform: rotate(-8deg);
 }
 
 /* Rotate the second polaroid */
-div.polaroid:nth-child(2) {
+div.polaroid:nth-child(even) {
   float: right;
   transform: rotate(8deg);
-}
-/* Rotate the 3rd polaroid */
-div.polaroid:nth-child(3) {
-  float: left;
-  transform: rotate(-8deg);
 }
 
-/* Rotate the 4th polaroid */
-div.polaroid:nth-child(4) {
-  float: right;
-  transform: rotate(8deg);
-}
 .image {
   opacity: 1;
   display: block;
@@ -199,7 +189,13 @@ href=https://raw.githubusercontent.com/kadirtastepe/ROOT_Examples/main/TGraph.cc
        
 </div>   
    <div id="The_Road_So_Far" class="tabcontent">
-
+<div class="polaroid">
+  <img src="CERN_2024.jpg" style="width:100%">
+  <div class="container">
+  <p>Geneva, Switzerland 2024 - CERN</p>
+  </div>
+</div>
+      
 <div class="polaroid">
   <img src="PSI2023.jpg" style="width:100%">
   <div class="container">
