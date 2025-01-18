@@ -1,5 +1,6 @@
 const toggle = document.getElementById('toggleDark');
 const body = document.querySelector('body');
+const polaroids = document.querySelectorAll('.polaroid'); // Select all elements with class "polaroid"
 
 toggle.addEventListener('click', function(){
     this.classList.toggle('bi-moon');
@@ -8,11 +9,19 @@ toggle.addEventListener('click', function(){
         body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
         body.style.color = 'black';
         body.style.transition = '1s';
+        // Change color for .polaroid elements
+        polaroids.forEach(element => {
+            element.style.color = 'black';
+        });
     }else{
         body.style.background = 'url("pics/negative.png")'; // Set the PNG background
         body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
         body.style.color = 'white';
         body.style.transition = '1s';
+        // Change color for .polaroid elements
+        polaroids.forEach(element => {
+            element.style.color = 'black';
+        });
     }
 });
 
