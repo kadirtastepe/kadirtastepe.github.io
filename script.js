@@ -6,7 +6,8 @@ toggle.addEventListener('click', function(){
     if(this.classList.toggle('bi-brightness-high-fill')){
         body.style.background = 'url("pics/background.png")'; // Set the PNG background
         body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
-        body.style.color = 'black';
+        body.style.background = 'url("pics/negative.png")'; // Set the PNG background
+        body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
         body.style.transition = '1s';
     }else{
         body.style.background = 'url("pics/background.png")'; // Set the PNG background
