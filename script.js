@@ -5,9 +5,8 @@ toggle.addEventListener('click', function(){
     this.classList.toggle('bi-moon');
     if(this.classList.toggle('bi-brightness-high-fill')){
         body.style.background = 'url("pics/background.png")'; // Set the PNG background
-        body.style.backgroundSize = 'cover'; // Make sure the background fits the viewport
         body.style.color = 'black';
-        body.style.transition = 'background 1s ease'; // Apply transition to background
+        body.style.transition = '1s';
     }else{
         body.style.background = 'black';
         body.style.color = 'white';
