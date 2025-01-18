@@ -6,10 +6,11 @@ toggle.addEventListener('click', function(){
     if(this.classList.toggle('bi-brightness-high-fill')){
         body.style.background = 'url("pics/background.png")'; // Set the PNG background
         body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
-        body.style.color = 'black';
+        body.style.filter = 'invert(1)'; // Apply the negative effect (invert the colors)
         body.style.transition = '1s';
     }else{
-        body.style.background = 'black';
+        body.style.background = 'url("pics/background.png")'; // Set the PNG background
+        body.style.filter = 'invert(1)'; // Apply the negative effect (invert the colors)
         body.style.color = 'white';
         body.style.transition = '1s';
     }
