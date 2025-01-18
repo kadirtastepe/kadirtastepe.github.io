@@ -4,7 +4,7 @@ const body = document.querySelector('body');
 toggle.addEventListener('click', function(){
     this.classList.toggle('bi-moon');
     if(this.classList.toggle('bi-brightness-high-fill')){
-        body.style.background = 'url("background.png")'; // Set the PNG background
+        body.style.background = 'url("pics/background.png")'; // Set the PNG background
         body.style.backgroundSize = 'cover'; // Make sure the background fits the viewport
         body.style.color = 'black';
         body.style.transition = 'background 1s ease'; // Apply transition to background
