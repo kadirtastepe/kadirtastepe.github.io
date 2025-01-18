@@ -7,11 +7,9 @@ toggle.addEventListener('click', function(){
         body.style.background = 'url("pics/background.png")'; // Set the PNG background
         body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
         body.style.background = 'url("pics/negative.png")'; // Set the PNG background
-        body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
         body.style.transition = '1s';
     }else{
         body.style.background = 'url("pics/background.png")'; // Set the PNG background
-        body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
         body.style.color = 'white';
         body.style.transition = '1s';
     }
