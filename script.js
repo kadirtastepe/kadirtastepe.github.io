@@ -6,7 +6,7 @@ toggle.addEventListener('click', function(){
     this.classList.toggle('bi-moon');
     if(this.classList.toggle('bi-brightness-high-fill')){
         body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
-        body.style.background = 'url("pics/background.png") no-repeat center center fixed'; // Set the PNG background
+        body.style.background = 'url("pics/background.png")'; // Set the PNG background
         body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
         body.style.color = 'black';
         // Change color for .polaroid elements
@@ -16,7 +16,7 @@ toggle.addEventListener('click', function(){
         body.style.transition = '1s';
     }else{
         body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
-        body.style.background = 'url("pics/negative.png" no-repeat center center fixed)'; // Set the PNG background
+        body.style.background = 'url("pics/negative.png")'; // Set the PNG background
         body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
         body.style.color = 'white';
         // Change color for .polaroid elements
