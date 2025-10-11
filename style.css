@@ -443,6 +443,11 @@ main {
   left: -3rem;
 }
 
+/* Hide year label for duplicate years */
+.timeline-item.hide-year::before {
+  display: none;
+}
+
 /* Timeline content */
 .timeline-content {
   position: relative;

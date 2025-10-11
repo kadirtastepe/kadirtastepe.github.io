@@ -2,7 +2,28 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize dark mode toggle
   initializeDarkModeToggle();
+  // Initialize timeline year display
+  initializeTimelineYears();
 });
+
+/**
+ * Initialize timeline to show years only once
+ */
+function initializeTimelineYears() {
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  let lastYear = null;
+  
+  timelineItems.forEach(item => {
+    const currentYear = item.getAttribute('data-year');
+    
+    if (currentYear === lastYear) {
+      // Hide the year label for duplicate years
+      item.classList.add('hide-year');
+    }
+    
+    lastYear = currentYear;
+  });
+}
 
 /**
  * Initialize and open the default tab on page load
