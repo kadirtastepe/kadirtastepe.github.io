@@ -1,49 +1,197 @@
-const toggle = document.getElementById('toggleDark');
-const body = document.querySelector('body');
-const polaroids = document.querySelectorAll('.polaroid'); // Select all elements with class "polaroid"
-
-toggle.addEventListener('click', function(){
-    this.classList.toggle('bi-moon');
-    if(this.classList.toggle('bi-brightness-high-fill')){
-        body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
-        body.style.background = 'url("pics/background.png")'; // Set the PNG background
-        body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
-        body.style.color = 'black';
-        // Change color for .polaroid elements
-        polaroids.forEach(element => {
-            element.style.color = 'black';
-        });
-        body.style.transition = '1s';
-    }else{
-        body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
-        body.style.background = 'url("pics/negative.png")'; // Set the PNG background
-        body.style.backgroundSize = 'Cover'; // Make sure the background covers the body
-        body.style.color = 'white';
-        // Change color for .polaroid elements
-        polaroids.forEach(element => {
-            element.style.color = 'black';
-        });
-        body.style.transition = '1s';
-    }
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize dark mode toggle
+  initializeDarkModeToggle();
 });
 
-function openCity(evt, cityName) {
-  // Declare all variables
-  var i, tabcontent, tablinks;
+/**
+ * Initialize and open the default tab on page load
+ */
+function initializeDefaultTab() {
+  const defaultTab = document.querySelector('.tablinks');
+  if (defaultTab) {
+    // Simulate a click on the first tab
+    const tabName = defaultTab.getAttribute('onclick').match(/'([^']+)'/)[1];
+    const tabContent = document.getElementById(tabName);
+    
+    if (tabContent) {
+      tabContent.style.display = 'block';
+      defaultTab.classList.add('active');
+      defaultTab.setAttribute('aria-selected', 'true');
+    }
+  }
+}
 
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
+/**
+ * Initialize dark mode toggle functionality
+ */
+function initializeDarkModeToggle() {
+  const toggle = document.getElementById('toggleDark');
+  const body = document.body;
+
+  if (!toggle) return;
+
+  toggle.addEventListener('click', function() {
+    body.classList.toggle('dark-mode');
+    
+    // Toggle icon
+    const icon = this.querySelector('i');
+    if (icon) {
+      if (body.classList.contains('dark-mode')) {
+        icon.classList.remove('bi-brightness-high-fill');
+        icon.classList.add('bi-moon');
+      } else {
+        icon.classList.remove('bi-moon');
+        icon.classList.add('bi-brightness-high-fill');
+      }
+    }
+    
+    // Save preference to localStorage
+    localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+  });
+
+  // Check for saved dark mode preference
+  const darkModePreference = localStorage.getItem('darkMode');
+  if (darkModePreference === 'true') {
+    body.classList.add('dark-mode');
+    const icon = toggle.querySelector('i');
+    if (icon) {
+      icon.classList.remove('bi-brightness-high-fill');
+      icon.classList.add('bi-moon');
+    }
+  }
+}
+
+/**
+ * Open a specific tab and close all others, or collapse if already open
+ * @param {Event} evt - The click event
+ * @param {string} tabName - The ID of the tab to open
+ */
+function openTab(evt, tabName) {
+  const selectedTab = document.getElementById(tabName);
+  const clickedButton = evt.currentTarget;
+  
+  // Check if the clicked tab is already active
+  const isActive = clickedButton.classList.contains('active');
+  
+  // Hide all tab content
+  const tabContents = document.getElementsByClassName('tabcontent');
+  for (let i = 0; i < tabContents.length; i++) {
+    tabContents[i].style.display = 'none';
   }
 
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  // Remove active class from all tab links
+  const tabLinks = document.getElementsByClassName('tablinks');
+  for (let i = 0; i < tabLinks.length; i++) {
+    tabLinks[i].classList.remove('active');
+    tabLinks[i].setAttribute('aria-selected', 'false');
   }
 
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
+  // If tab was not active, show it and mark as active
+  // If it was active, leave it collapsed (already hidden above)
+  if (selectedTab && !isActive) {
+    selectedTab.style.display = 'block';
+    clickedButton.classList.add('active');
+    clickedButton.setAttribute('aria-selected', 'true');
+    
+    // Smooth scroll to top of content on mobile
+    if (window.innerWidth <= 768) {
+      selectedTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+}
+
+/**
+ * Open lightbox with the clicked image
+ * @param {HTMLElement} polaroidElement - The polaroid div that was clicked
+ */
+function openLightbox(polaroidElement) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  
+  // Get the image and caption from the clicked polaroid
+  const img = polaroidElement.querySelector('img');
+  const caption = polaroidElement.querySelector('.polaroid-caption p');
+  
+  if (img && lightbox && lightboxImg) {
+    lightbox.style.display = 'block';
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    
+    if (caption && lightboxCaption) {
+      lightboxCaption.innerHTML = caption.innerHTML;
+    }
+    
+    // Prevent body scrolling when lightbox is open
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+/**
+ * Open lightbox with the clicked bird image
+ * @param {HTMLElement} birdElement - The bird figure element that was clicked
+ */
+function openBirdLightbox(birdElement) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  
+  // Get the image and caption from the clicked bird entry
+  const img = birdElement.querySelector('img');
+  const caption = birdElement.querySelector('figcaption');
+  
+  if (img && lightbox && lightboxImg) {
+    lightbox.style.display = 'block';
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    
+    if (caption && lightboxCaption) {
+      lightboxCaption.innerHTML = caption.innerHTML;
+    }
+    
+    // Prevent body scrolling when lightbox is open
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+/**
+ * Close the lightbox
+ */
+function closeLightbox() {
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox) {
+    lightbox.style.display = 'none';
+    // Restore body scrolling
+    document.body.style.overflow = 'auto';
+  }
+}
+
+// Close lightbox on Escape key press
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape' || event.key === 'Esc') {
+    closeLightbox();
+  }
+});
+
+/**
+ * Switch between timeline and gallery views
+ * @param {string} view - The view to switch to ('timeline' or 'gallery')
+ */
+function switchView(view) {
+  const timelineView = document.getElementById('timeline-view');
+  const galleryView = document.getElementById('gallery-view');
+  const buttons = document.querySelectorAll('.view-btn');
+  
+  if (view === 'timeline') {
+    timelineView.style.display = 'block';
+    galleryView.style.display = 'none';
+    buttons[0].classList.add('active');
+    buttons[1].classList.remove('active');
+  } else if (view === 'gallery') {
+    timelineView.style.display = 'none';
+    galleryView.style.display = 'flex';
+    buttons[0].classList.remove('active');
+    buttons[1].classList.add('active');
+  }
 }
