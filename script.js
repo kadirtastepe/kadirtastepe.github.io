@@ -1,10 +1,134 @@
+// Road So Far data source - single source of truth
+const roadSoFarData = [
+  {
+    year: '2025',
+    image: 'pics/SAP.jpg',
+    alt: 'Walldorf, Germany 2025 - SAP',
+    caption: 'Walldorf, Germany 2025 - SAP'
+  },
+  {
+    year: '2024',
+    image: 'pics/DELL.jpg',
+    alt: 'Frankfurt, Germany 2024 - DELL Technologies',
+    caption: 'Frankfurt, Germany 2024 - DELL Technologies'
+  },
+  {
+    year: '2024',
+    image: 'pics/CHEP2024.png',
+    alt: 'Krakow, Poland 2024 - CHEP Conference',
+    caption: 'Krakow, Poland 2024 - CHEP <br> (Computing in High Energy Physics)'
+  },
+  {
+    year: '2024',
+    image: 'pics/CERN_2024.jpg',
+    alt: 'Geneva, Switzerland 2024 - CERN',
+    caption: 'Geneva, Switzerland 2024 - CERN'
+  },
+  {
+    year: '2023',
+    image: 'pics/Bosseln.png',
+    alt: 'Heidelberg, Germany 2023',
+    caption: 'Heidelberg, Germany 2023'
+  },
+  {
+    year: '2023',
+    image: 'pics/PSI2023.jpg',
+    alt: 'Villigen, Switzerland 2023 - Paul Scherrer Institute',
+    caption: 'Villigen, Switzerland 2023 <br> Paul Scherrer Institute'
+  },
+  {
+    year: '2022',
+    image: 'pics/IPP.png',
+    alt: 'Greifswald, Germany 2022 - Max Planck Institute IPP Summer University',
+    caption: 'Greifswald, Germany 2022 - Max Planck Institute IPP Summer University for Plasma Physics and Fusion Research'
+  },
+  {
+    year: '2020',
+    image: 'pics/pfbu2020.png',
+    alt: 'Istanbul, Turkey 2020 - Istanbul University Winter School',
+    caption: 'Istanbul, Turkey 2020 - Istanbul University Computing Applications in Particle Physics Winter School'
+  },
+  {
+    year: '2019',
+    image: 'pics/PPSS_2019.jpg',
+    alt: 'Krakow, Poland 2019 - Particle Physics Summer Student Programme',
+    caption: 'Krakow, Poland 2019 - Particle Physics Summer Student Programme<br>(The Henryk Niewodniczański Institute of Nuclear Physics Polish Academy of Sciences)'
+  }
+];
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize dark mode toggle
   initializeDarkModeToggle();
+  // Render timeline and gallery from data
+  renderTimelineView();
+  renderGalleryView();
   // Initialize timeline year display
   initializeTimelineYears();
+  // Initialize smooth scrolling
+  initializeSmoothScrolling();
+  // Initialize scroll spy for active navigation
+  initializeScrollSpy();
+  // Initialize back to top button
+  initializeBackToTop();
+  // Initialize contact form
+  initializeContactForm();
 });
+
+/**
+ * Render timeline view from data
+ */
+function renderTimelineView() {
+  const timelineContainer = document.getElementById('timeline-container');
+  if (!timelineContainer) return;
+  
+  timelineContainer.innerHTML = '';
+  
+  roadSoFarData.forEach(item => {
+    const timelineItem = document.createElement('div');
+    timelineItem.className = 'timeline-item';
+    timelineItem.setAttribute('data-year', item.year);
+    
+    timelineItem.innerHTML = `
+      <div class="timeline-marker"></div>
+      <div class="timeline-content" onclick="openLightbox(this.querySelector('.polaroid'))">
+        <div class="polaroid">
+          <img src="${item.image}" alt="${item.alt}" loading="lazy" decoding="async">
+          <div class="polaroid-caption">
+            <p>${item.caption}</p>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    timelineContainer.appendChild(timelineItem);
+  });
+}
+
+/**
+ * Render gallery view from data
+ */
+function renderGalleryView() {
+  const galleryView = document.getElementById('gallery-view');
+  if (!galleryView) return;
+  
+  galleryView.innerHTML = '';
+  
+  roadSoFarData.forEach(item => {
+    const polaroid = document.createElement('div');
+    polaroid.className = 'polaroid';
+    polaroid.setAttribute('onclick', 'openLightbox(this)');
+    
+    polaroid.innerHTML = `
+      <img src="${item.image}" alt="${item.alt}" loading="lazy" decoding="async">
+      <div class="polaroid-caption">
+        <p>${item.caption}</p>
+      </div>
+    `;
+    
+    galleryView.appendChild(polaroid);
+  });
+}
 
 /**
  * Initialize timeline to show years only once
@@ -26,21 +150,105 @@ function initializeTimelineYears() {
 }
 
 /**
- * Initialize and open the default tab on page load
+ * Initialize smooth scrolling for navigation links
  */
-function initializeDefaultTab() {
-  const defaultTab = document.querySelector('.tablinks');
-  if (defaultTab) {
-    // Simulate a click on the first tab
-    const tabName = defaultTab.getAttribute('onclick').match(/'([^']+)'/)[1];
-    const tabContent = document.getElementById(tabName);
-    
-    if (tabContent) {
-      tabContent.style.display = 'block';
-      defaultTab.classList.add('active');
-      defaultTab.setAttribute('aria-selected', 'true');
+function initializeSmoothScrolling() {
+  const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        // Update URL without scrolling
+        history.pushState(null, null, `#${targetId}`);
+      }
+    });
+  });
+}
+
+/**
+ * Initialize scroll spy to highlight active navigation item
+ */
+function initializeScrollSpy() {
+  const sections = document.querySelectorAll('.content-section');
+  const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+  
+  // Create an intersection observer
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionId = entry.target.getAttribute('id');
+        
+        // Remove active class from all nav links
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+        });
+        
+        // Add active class to corresponding nav link
+        const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+    });
+  }, observerOptions);
+  
+  // Observe all sections
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+}
+
+/**
+ * Initialize back to top button
+ */
+function initializeBackToTop() {
+  const backToTopButton = document.getElementById('backToTop');
+  
+  if (!backToTopButton) return;
+  
+  // Show/hide button based on scroll position
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+      backToTopButton.classList.add('visible');
+    } else {
+      backToTopButton.classList.remove('visible');
     }
-  }
+  });
+  
+  // Scroll to top when clicked
+  backToTopButton.addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+/**
+ * @deprecated This function is no longer used with scrollable navigation
+ * Open a specific tab and close all others, or collapse if already open
+ * @param {Event} evt - The click event
+ * @param {string} tabName - The ID of the tab to open
+ */
+function openTab(evt, tabName) {
+  // This function is kept for backwards compatibility but is no longer used
+  console.warn('openTab is deprecated with scrollable navigation');
 }
 
 /**
@@ -83,44 +291,6 @@ function initializeDarkModeToggle() {
   }
 }
 
-/**
- * Open a specific tab and close all others, or collapse if already open
- * @param {Event} evt - The click event
- * @param {string} tabName - The ID of the tab to open
- */
-function openTab(evt, tabName) {
-  const selectedTab = document.getElementById(tabName);
-  const clickedButton = evt.currentTarget;
-  
-  // Check if the clicked tab is already active
-  const isActive = clickedButton.classList.contains('active');
-  
-  // Hide all tab content
-  const tabContents = document.getElementsByClassName('tabcontent');
-  for (let i = 0; i < tabContents.length; i++) {
-    tabContents[i].style.display = 'none';
-  }
-
-  // Remove active class from all tab links
-  const tabLinks = document.getElementsByClassName('tablinks');
-  for (let i = 0; i < tabLinks.length; i++) {
-    tabLinks[i].classList.remove('active');
-    tabLinks[i].setAttribute('aria-selected', 'false');
-  }
-
-  // If tab was not active, show it and mark as active
-  // If it was active, leave it collapsed (already hidden above)
-  if (selectedTab && !isActive) {
-    selectedTab.style.display = 'block';
-    clickedButton.classList.add('active');
-    clickedButton.setAttribute('aria-selected', 'true');
-    
-    // Smooth scroll to top of content on mobile
-    if (window.innerWidth <= 768) {
-      selectedTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-}
 
 /**
  * Open lightbox with the clicked image
@@ -215,4 +385,91 @@ function switchView(view) {
     buttons[0].classList.remove('active');
     buttons[1].classList.add('active');
   }
+}
+
+/**
+ * Toggle collapsible sections
+ * @param {HTMLElement} button - The button element that was clicked
+ */
+function toggleCollapsible(button) {
+  const content = button.parentElement.querySelector('.collapsible-content');
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  
+  if (isExpanded) {
+    // Collapse
+    button.setAttribute('aria-expanded', 'false');
+    content.classList.remove('expanded');
+  } else {
+    // Expand
+    button.setAttribute('aria-expanded', 'true');
+    content.classList.add('expanded');
+  }
+}
+
+/**
+ * Initialize contact form with mailto fallback
+ */
+function initializeContactForm() {
+  const form = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  
+  if (!form) return;
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+    
+    // Check if Formspree is configured
+    const formAction = form.getAttribute('action');
+    
+    if (formAction.includes('YOUR_FORM_ID')) {
+      // Fallback to mailto if Formspree is not configured
+      const mailtoLink = `mailto:ktastepe@cern.ch?subject=${encodeURIComponent('Portfolio Contact Message')}&body=${encodeURIComponent(
+        `From: ${name} (${email})\n\n${message}`
+      )}`;
+      
+      window.location.href = mailtoLink;
+      
+      formStatus.textContent = 'Opening your email client...';
+      formStatus.className = 'form-status success';
+      
+      setTimeout(() => {
+        formStatus.className = 'form-status';
+        formStatus.textContent = '';
+        form.reset();
+      }, 3000);
+    } else {
+      // Use Formspree if configured
+      fetch(formAction, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          formStatus.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+          formStatus.className = 'form-status success';
+          form.reset();
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(error => {
+        formStatus.textContent = 'Oops! There was a problem sending your message. Please try emailing directly.';
+        formStatus.className = 'form-status error';
+      })
+      .finally(() => {
+        setTimeout(() => {
+          formStatus.className = 'form-status';
+          formStatus.textContent = '';
+        }, 5000);
+      });
+    }
+  });
 }

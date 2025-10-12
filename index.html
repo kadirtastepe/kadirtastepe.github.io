@@ -22,52 +22,58 @@
 </head>
 <body>
   <header>
-    <button class="theme-toggle" id="toggleDark" aria-label="Toggle dark mode">
-      <i class="bi bi-brightness-high-fill"></i>
-    </button>
     <h1>Kadir Murat Tastepe</h1>
   </header>
 
+  <!-- Sticky Navigation -->
+  <nav class="sticky-nav" id="stickyNav" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#Biography" class="nav-link active">About Me</a>
+      <a href="#ResearchAreas" class="nav-link">Research Areas</a>
+      <a href="#MyProjects" class="nav-link">My Projects</a>
+      <a href="#Talks" class="nav-link">Talks</a>
+      <a href="#LectureNotes" class="nav-link">Lecture Notes</a>
+      <a href="#BirdJournal" class="nav-link">Bird Journal</a>
+      <a href="#The_Road_So_Far" class="nav-link">The Road So Far</a>
+      <a href="#Contact" class="nav-link">Contact</a>
+      <a href="https://kadirtastepe.github.io/CV.pdf" class="nav-link cv-link" target="_blank" rel="noopener noreferrer" aria-label="Download CV">CV</a>
+      <button class="theme-toggle nav-theme-toggle" id="toggleDark" aria-label="Toggle dark mode">
+        <i class="bi bi-brightness-high-fill"></i>
+      </button>
+    </div>
+  </nav>
+
   <main>
     <div class="main-layout">
-      <!-- Left side: Navigation and Content -->
+      <!-- Left side: Content Sections -->
       <div class="content-side">
-        <!-- Navigation Tabs -->
-        <nav class="tab" role="tablist" aria-label="Main navigation">
-            <button class="tablinks" onclick="openTab(event, 'Biography')" role="tab" aria-selected="false" aria-controls="Biography">About Me</button>
-            <button class="tablinks" onclick="openTab(event, 'ResearchAreas')" role="tab" aria-selected="false" aria-controls="ResearchAreas">Research Areas</button>
-            <button class="tablinks" onclick="openTab(event, 'MyProjects')" role="tab" aria-selected="false" aria-controls="MyProjects">My Projects</button>
-            <button class="tablinks" onclick="openTab(event, 'Talks')" role="tab" aria-selected="false" aria-controls="Talks">Talks & Presentations</button>
-            <button class="tablinks" onclick="openTab(event, 'LectureNotes')" role="tab" aria-selected="false" aria-controls="LectureNotes">Lecture Notes</button>
-            <button class="tablinks" onclick="openTab(event, 'BirdJournal')" role="tab" aria-selected="false" aria-controls="BirdJournal">Bird Journal</button>
-            <button class="tablinks" onclick="openTab(event, 'The_Road_So_Far')" role="tab" aria-selected="false" aria-controls="The_Road_So_Far">The Road So Far</button>
-            <button class="tablinks" onclick="openTab(event, 'Contact')" role="tab" aria-selected="false" aria-controls="Contact">Contact</button>
-            <a href="https://kadirtastepe.github.io/CV.pdf" class="tablinks cv-link" target="_blank" rel="noopener noreferrer" aria-label="Download CV">CV</a>
-        </nav>
-
-        <!-- Tab Content -->
-        <article id="Biography" class="tabcontent" role="tabpanel" aria-labelledby="Biography">
-          <h2>Disciple of experience.</h2>
-          <p>My physics journey started with extraordinary enthusiasm and passion. I am exploring the secrets of the universe.</p>
+        <!-- Section: Biography -->
+        <section id="Biography" class="content-section">
+          <h2>About Me</h2>
+          <p>I am an M.Sc. physics candidate at Ruprecht Karls University of Heidelberg. I specialized in computational high-energy physics, with experience in developing FPGA-based detector algorithms and real-time data processing systems. In my master's project, to address the challenge of real-time particle track fitting in the HighLumi LHC environment, I developed a high-throughput HLS-based FPGA prototype of the General Triplet Track Fit algorithm on an AMD Alveo U280 platform.</p>
+          
+          <p>Dual life: During my part-time role as a machine learning engineer at SAP, to address the critical need for an intelligent documentation assistance to prevent bug issues, I used Flask APIs to develop Anonymized Agentic Multimodal Retrieval Augmented Generation (RAG) pipelines for large-scale data processing. For a conversational AI experience, a working prototype as a SlackBot has been deployed on Cloud Foundry.</p>
+          
+          <p>Currently, I am seeking a PhD position, bringing with me the rich industry and academic experience I have gained over the years to contribute to groundbreaking research in high-energy physics. Curious to know more, feel free to contact me below!</p>
+          
           <div class="journey-image">
             <img src="pics/Journey.png" alt="My Physics Journey" loading="lazy" decoding="async" />
           </div>
-        </article>
+        </section>
 
-    <article id="ResearchAreas" class="tabcontent" role="tabpanel" aria-labelledby="ResearchAreas">
+        <!-- Section: Research Areas -->
+        <section id="ResearchAreas" class="content-section">
       <h2>Main Research Areas</h2>
       <ul class="research-list">
         <li>High Energy Physics</li>
         <li>Charged Particle Track Reconstruction</li>
         <li>Accelerated Computing</li>
-        <li>Computational Science</li>
         <li>Machine Learning in Physics</li>
-        <li>Agentic AI Applications</li>
-        <li>Retrieval Augmented Generation</li>
       </ul>
-    </article>
+        </section>
 
-    <article id="MyProjects" class="tabcontent" role="tabpanel" aria-labelledby="MyProjects">
+        <!-- Section: My Projects -->
+        <section id="MyProjects" class="content-section">
       <h2>My Projects</h2>
       <ul class="projects-list">
         <li><a href="https://gitlab.cern.ch/ktastepe/hls_triplet_fit.git" target="_blank" rel="noopener noreferrer">HLS-Based FPGA Implementation of the General Triplet Track Fit Algorithm for Real-Time Particle Tracking</a></li>
@@ -75,34 +81,45 @@
         <li><a href="https://ppss.ifj.edu.pl/materials_2019/student_session/11_ASvetlichnyi_KTastepe_XeXe_collisions.pdf" target="_blank" rel="noopener noreferrer">Charged Particle Production in Xe+Xe Collisions 2017 Data Analysis</a></li>
         <li><a href="https://raw.githubusercontent.com/kadirtastepe/kadirtastepe.github.io/refs/heads/main/pics/BaikalGVD.gif" target="_blank" rel="noopener noreferrer">Underwater Neutrino Detector Calibration System</a></li>
         <li><a href="https://kadirtastepe.github.io/LSF-and-MTF-Measurement/#line-spread-functionlsf" target="_blank" rel="noopener noreferrer">LSF and MTF Measurement</a></li>
-        <li>Simulation of Rutherford's Alpha Scattering Experiment</li>
-        <li><a href="https://kadirtastepe.github.io/Statistical-Physics/" target="_blank" rel="noopener noreferrer">Number of Accessible States for Boson Particles</a></li>
-        <li><a href="https://kadirtastepe.github.io/Black-body-Radiation/" target="_blank" rel="noopener noreferrer">Blackbody Radiation</a></li>
-        <li><a href="https://kadirtastepe.github.io/Lissajous-Curves/" target="_blank" rel="noopener noreferrer">Lissajous Curves</a></li>
-        <li><a href="https://kadirtastepe.github.io/Simple-Pendulum/" target="_blank" rel="noopener noreferrer">Simple Pendulum</a></li>
-        <li><a href="https://kadirtastepe.github.io/Projectile-Motion/" target="_blank" rel="noopener noreferrer">Projectile Motion</a></li>
-        <li><a href="https://kadirtastepe.github.io/Free-Fall-Motion/" target="_blank" rel="noopener noreferrer">Free-Fall Motion</a></li>
+        <li class="collapsible-item">
+          <button class="collapsible-btn" onclick="toggleCollapsible(this)" aria-expanded="false">
+            <i class="bi bi-chevron-right chevron-icon"></i>
+            <span>Animations</span>
+          </button>
+          <ul class="collapsible-content">
+            <li>Simulation of Rutherford's Alpha Scattering Experiment</li>
+            <li><a href="https://kadirtastepe.github.io/Statistical-Physics/" target="_blank" rel="noopener noreferrer">Number of Accessible States for Boson Particles</a></li>
+            <li><a href="https://kadirtastepe.github.io/Black-body-Radiation/" target="_blank" rel="noopener noreferrer">Blackbody Radiation</a></li>
+            <li><a href="https://kadirtastepe.github.io/Lissajous-Curves/" target="_blank" rel="noopener noreferrer">Lissajous Curves</a></li>
+            <li><a href="https://kadirtastepe.github.io/Simple-Pendulum/" target="_blank" rel="noopener noreferrer">Simple Pendulum</a></li>
+            <li><a href="https://kadirtastepe.github.io/Projectile-Motion/" target="_blank" rel="noopener noreferrer">Projectile Motion</a></li>
+            <li><a href="https://kadirtastepe.github.io/Free-Fall-Motion/" target="_blank" rel="noopener noreferrer">Free-Fall Motion</a></li>
+          </ul>
+        </li>
       </ul>
-    </article>
+        </section>
 
-    <article id="Talks" class="tabcontent" role="tabpanel" aria-labelledby="Talks">
+        <!-- Section: Talks & Presentations -->
+        <section id="Talks" class="content-section">
       <h2>Talks & Presentations</h2>
       <ul class="talks-list">
         <li><a href="https://indico.cern.ch/event/1338689/contributions/6015445/attachments/2950576/5186496/Heidelberg_PI-FPGA_Implementation_of_the_GTTF_POSTER.pdf" target="_blank" rel="noopener noreferrer">CHEP Conference, Krakow, Poland 2024</a></li>
         <li><a href="https://indico.cern.ch/event/1401878/contributions/6030342/attachments/2900149/5085823/HLS_GTTF_Kadir_Tastepe_Trifels-Meeting.pdf" target="_blank" rel="noopener noreferrer">ATLAS-Heidelberg Meeting Trifels, Germany 2024</a></li>
       </ul>
-    </article>
+        </section>
 
-    <article id="LectureNotes" class="tabcontent" role="tabpanel" aria-labelledby="LectureNotes">
+        <!-- Section: Lecture Notes -->
+        <section id="LectureNotes" class="content-section">
       <h2>Lecture Notes</h2>
       <ul class="notes-list">
         <li><a href="https://raw.githubusercontent.com/kadirtastepe/kadirtastepe.github.io/main/Lecture_Notes/Machine%20Learning.png" target="_blank" rel="noopener noreferrer">Machine Learning</a></li>
         <li>Computational Statistics & Data Analysis</li>
         <li><a href="https://kadirtastepe.github.io/Lecture_Notes/Standard_Model.pdf" target="_blank" rel="noopener noreferrer">Standard Model of Particle Physics</a></li>
       </ul>
-    </article>
+        </section>
 
-    <article id="BirdJournal" class="tabcontent" role="tabpanel" aria-labelledby="BirdJournal">
+        <!-- Section: Bird Journal -->
+        <section id="BirdJournal" class="content-section">
       <h2>Birdwatcher's Journal</h2>
       <div class="bird-gallery">
         <figure class="bird-entry" onclick="openBirdLightbox(this)">
@@ -140,8 +157,10 @@
           <figcaption>11.09.2022 - Larus canus (Mew Gull)</figcaption>
         </figure>
       </div>
-    </article>
-    <article id="The_Road_So_Far" class="tabcontent" role="tabpanel" aria-labelledby="The_Road_So_Far">
+        </section>
+
+        <!-- Section: The Road So Far -->
+        <section id="The_Road_So_Far" class="content-section">
       <h2>The Road So Far</h2>
       
       <!-- View Toggle Buttons -->
@@ -152,200 +171,57 @@
 
       <!-- Timeline View -->
       <div class="timeline-view" id="timeline-view">
-        <div class="timeline">
-          <div class="timeline-item" data-year="2025">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content" onclick="openLightbox(this.querySelector('.polaroid'))">
-              <div class="polaroid">
-                <img src="pics/SAP.jpg" alt="Walldorf, Germany 2025 - SAP" loading="lazy" decoding="async">
-                <div class="polaroid-caption">
-                  <p>Walldorf, Germany 2025 - SAP</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2024">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content" onclick="openLightbox(this.querySelector('.polaroid'))">
-              <div class="polaroid">
-                <img src="pics/DELL.jpg" alt="Frankfurt, Germany 2024 - DELL Technologies" loading="lazy" decoding="async">
-                <div class="polaroid-caption">
-                  <p>Frankfurt, Germany 2024 - DELL Technologies</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2024">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content" onclick="openLightbox(this.querySelector('.polaroid'))">
-              <div class="polaroid">
-                <img src="pics/CHEP2024.png" alt="Krakow, Poland 2024 - CHEP Conference" loading="lazy" decoding="async">
-                <div class="polaroid-caption">
-                  <p>Krakow, Poland 2024 - CHEP <br> (Computing in High Energy Physics)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2024">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content" onclick="openLightbox(this.querySelector('.polaroid'))">
-              <div class="polaroid">
-                <img src="pics/CERN_2024.jpg" alt="Geneva, Switzerland 2024 - CERN" loading="lazy" decoding="async">
-                <div class="polaroid-caption">
-                  <p>Geneva, Switzerland 2024 - CERN</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2023">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content" onclick="openLightbox(this.querySelector('.polaroid'))">
-              <div class="polaroid">
-                <img src="pics/Bosseln.png" alt="Heidelberg, Germany 2023" loading="lazy" decoding="async">
-                <div class="polaroid-caption">
-                  <p>Heidelberg, Germany 2023</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2023">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content" onclick="openLightbox(this.querySelector('.polaroid'))">
-              <div class="polaroid">
-                <img src="pics/PSI2023.jpg" alt="Villigen, Switzerland 2023 - Paul Scherrer Institute" loading="lazy" decoding="async">
-                <div class="polaroid-caption">
-                  <p>Villigen, Switzerland 2023 <br> Paul Scherrer Institute</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="timeline-item" data-year="2022">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content" onclick="openLightbox(this.querySelector('.polaroid'))">
-              <div class="polaroid">
-                <img src="pics/IPP.png" alt="Greifswald, Germany 2022 - Max Planck Institute IPP Summer University" loading="lazy" decoding="async">
-                <div class="polaroid-caption">
-                  <p>Greifswald, Germany 2022 - Max Planck Institute IPP Summer University for Plasma Physics and Fusion Research</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2020">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content" onclick="openLightbox(this.querySelector('.polaroid'))">
-              <div class="polaroid">
-                <img src="pics/pfbu2020.png" alt="Istanbul, Turkey 2020 - Istanbul University Winter School" loading="lazy" decoding="async">
-                <div class="polaroid-caption">
-                  <p>Istanbul, Turkey 2020 - Istanbul University Computing Applications in Particle Physics Winter School</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2019">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content" onclick="openLightbox(this.querySelector('.polaroid'))">
-              <div class="polaroid">
-                <img src="pics/PPSS_2019.jpg" alt="Krakow, Poland 2019 - Particle Physics Summer Student Programme" loading="lazy" decoding="async">
-                <div class="polaroid-caption">
-                  <p>Krakow, Poland 2019 - Particle Physics Summer Student Programme<br>(The Henryk Niewodniczański Institute of Nuclear Physics Polish Academy of Sciences)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="timeline" id="timeline-container"></div>
       </div>
 
-      <!-- Gallery View (Original Polaroid Gallery) -->
-      <div class="polaroid-gallery" id="gallery-view" style="display: none;">
-        <div class="polaroid" onclick="openLightbox(this)">
-          <img src="pics/SAP.jpg" alt="Walldorf, Germany 2025 - SAP" loading="lazy" decoding="async">
-          <div class="polaroid-caption">
-            <p>Walldorf, Germany 2025 - SAP</p>
-          </div>
-        </div>
+      <!-- Gallery View -->
+      <div class="polaroid-gallery" id="gallery-view" style="display: none;"></div>
+        </section>
 
-        <div class="polaroid" onclick="openLightbox(this)">
-          <img src="pics/DELL.jpg" alt="Frankfurt, Germany 2024 - DELL Technologies" loading="lazy" decoding="async">
-          <div class="polaroid-caption">
-            <p>Frankfurt, Germany 2024 - DELL Technologies</p>
-          </div>
-        </div>
-
-        <div class="polaroid" onclick="openLightbox(this)">
-          <img src="pics/CHEP2024.png" alt="Krakow, Poland 2024 - CHEP Conference" loading="lazy" decoding="async">
-          <div class="polaroid-caption">
-            <p>Krakow, Poland 2024 - CHEP (Computing in High Energy Physics)</p>
-          </div>
-        </div>
-
-        <div class="polaroid" onclick="openLightbox(this)">
-          <img src="pics/CERN_2024.jpg" alt="Geneva, Switzerland 2024 - CERN" loading="lazy" decoding="async">
-          <div class="polaroid-caption">
-            <p>Geneva, Switzerland 2024 - CERN</p>
-          </div>
-        </div>
-
-        <div class="polaroid" onclick="openLightbox(this)">
-          <img src="pics/Bosseln.png" alt="Heidelberg, Germany 2023" loading="lazy" decoding="async">
-          <div class="polaroid-caption">
-            <p> Heidelberg, Germany 2023 </p>
-          </div>
-        </div>
-
-        <div class="polaroid" onclick="openLightbox(this)">
-          <img src="pics/PSI2023.jpg" alt="Villigen, Switzerland 2023 - Paul Scherrer Institute" loading="lazy" decoding="async">
-          <div class="polaroid-caption">
-            <p>Villigen, Switzerland 2023 - Paul Scherrer Institute</p>
-          </div>
-        </div>
-
-
-        <div class="polaroid" onclick="openLightbox(this)">
-          <img src="pics/IPP.png" alt="Greifswald, Germany 2022 - Max Planck Institute IPP Summer University" loading="lazy" decoding="async">
-          <div class="polaroid-caption">
-            <p>Greifswald, Germany 2022 - Max Planck Institute IPP Summer University for Plasma Physics and Fusion Research</p>
-          </div>
-        </div>
-
-        <div class="polaroid" onclick="openLightbox(this)">
-          <img src="pics/pfbu2020.png" alt="Istanbul, Turkey 2020 - Istanbul University Winter School" loading="lazy" decoding="async">
-          <div class="polaroid-caption">
-            <p>Istanbul, Turkey 2020 - Istanbul University Computing Applications in Particle Physics Winter School</p>
-          </div>
-        </div>
-
-        <div class="polaroid" onclick="openLightbox(this)">
-          <img src="pics/PPSS_2019.jpg" alt="Krakow, Poland 2019 - Particle Physics Summer Student Programme" loading="lazy" decoding="async">
-          <div class="polaroid-caption">
-            <p>Krakow, Poland 2019 - Particle Physics Summer Student Programme<br>(The Henryk Niewodniczański Institute of Nuclear Physics Polish Academy of Sciences)</p>
-          </div>
-        </div>
-      </div>
-    </article>
-
-        <article id="Contact" class="tabcontent" role="tabpanel" aria-labelledby="Contact">
+        <!-- Section: Contact -->
+        <section id="Contact" class="content-section">
           <h2>Contact</h2>
-          <div class="contact-info">
-            <p class="email-contact">
-              <i class="bi bi-envelope"></i>
-              <a href="mailto:ktastepe@cern.ch">ktastepe@cern.ch</a>
-            </p>
-            <div class="social-links">
-              <a href="https://www.linkedin.com/in/kadir-tastepe-99ab68197" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="32" height="32" loading="lazy" decoding="async">
-              </a>
+          <div class="contact-container">
+            <div class="contact-info">
+              <p class="email-contact">
+                <i class="bi bi-envelope"></i>
+                <a href="mailto:ktastepe@cern.ch">ktastepe@cern.ch</a>
+              </p>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/kadir-tastepe-99ab68197" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                  <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="32" height="32" loading="lazy" decoding="async">
+                </a>
+              </div>
+            </div>
+            
+            <div class="contact-form-wrapper">
+              <h3>Drop a Message</h3>
+              <form id="contactForm" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required placeholder="Your name">
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+                
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
+                </div>
+                
+                <button type="submit" class="send-btn">
+                  <i class="bi bi-send-fill"></i>
+                  <span>Send Message</span>
+                </button>
+                
+                <div id="formStatus" class="form-status"></div>
+              </form>
             </div>
           </div>
-        </article>
+        </section>
       </div>
 
       <!-- Right side: Profile Image -->
@@ -375,6 +251,11 @@
       </iframe>
     </div>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="bi bi-arrow-up-circle-fill"></i>
+  </button>
 
   <!-- Lightbox Modal -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
