@@ -60,6 +60,8 @@ const roadSoFarData = [
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize dark mode toggle
   initializeDarkModeToggle();
+  // Initialize hamburger menu
+  initializeHamburgerMenu();
   // Render timeline and gallery from data
   renderTimelineView();
   renderGalleryView();
@@ -249,6 +251,69 @@ function initializeBackToTop() {
 function openTab(evt, tabName) {
   // This function is kept for backwards compatibility but is no longer used
   console.warn('openTab is deprecated with scrollable navigation');
+}
+
+/**
+ * Initialize hamburger menu functionality
+ */
+function initializeHamburgerMenu() {
+  const hamburger = document.getElementById('hamburgerBtn');
+  const navContainer = document.getElementById('navContainer');
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  if (!hamburger || !navContainer) return;
+  
+  // Toggle menu on hamburger click
+  hamburger.addEventListener('click', function() {
+    const isActive = hamburger.classList.contains('active');
+    
+    if (isActive) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+  
+  // Close menu when clicking on a nav link
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 768) {
+        closeMenu();
+      }
+    });
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) {
+      const isClickInside = navContainer.contains(e.target) || hamburger.contains(e.target);
+      if (!isClickInside && hamburger.classList.contains('active')) {
+        closeMenu();
+      }
+    }
+  });
+  
+  // Helper functions
+  function openMenu() {
+    hamburger.classList.add('active');
+    navContainer.classList.add('active');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeMenu() {
+    hamburger.classList.remove('active');
+    navContainer.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = 'auto';
+  }
+  
+  // Reset on window resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      closeMenu();
+    }
+  });
 }
 
 /**

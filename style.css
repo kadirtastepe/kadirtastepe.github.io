@@ -119,6 +119,45 @@ main {
   transition: all 0.3s ease;
 }
 
+/* Hamburger Menu Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-line {
+  width: 2rem;
+  height: 0.25rem;
+  background-color: #333;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translateY(0.6rem);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translateY(-0.6rem);
+}
+
 .nav-container {
   max-width: 1600px;
   margin: 0 auto;
@@ -931,6 +970,14 @@ body.dark-mode .form-group textarea:focus {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
+body.dark-mode .hamburger-line {
+  background-color: #fff;
+}
+
+body.dark-mode .nav-container {
+  background-color: rgba(0, 0, 0, 0.98);
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1200px) {
   .profile-side {
@@ -973,27 +1020,54 @@ body.dark-mode .form-group textarea:focus {
   .sticky-nav {
     position: sticky;
     top: 0;
+    padding: 0.5rem 0;
+  }
+
+  .hamburger {
+    display: flex;
   }
 
   .nav-container {
-    flex-direction: row;
-    overflow-x: auto;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
     justify-content: flex-start;
-    padding: 0;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
+    padding: 4rem 0 1rem 0;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    gap: 0;
+  }
+
+  .nav-container.active {
+    right: 0;
   }
 
   .nav-link {
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
-    flex-shrink: 0;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    border-left: 3px solid transparent;
+  }
+
+  .nav-link.active {
+    border-left-color: #4CAF50;
+    border-bottom-color: transparent;
   }
   
   .nav-theme-toggle {
-    padding: 0.5rem 0.75rem;
-    margin-left: auto;
-    flex-shrink: 0;
+    padding: 1rem 1.5rem;
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
   }
   
   .nav-theme-toggle i {
