@@ -55,7 +55,7 @@ main {
 .profile-side {
   flex: 0 0 350px;
   position: sticky;
-  top: calc(2rem + 2cm);
+  top: calc(2rem);
   align-self: flex-start;
   max-height: calc(100vh - 4rem);
 }
