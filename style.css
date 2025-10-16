@@ -316,6 +316,14 @@ main {
   transform: translateX(5px);
 }
 
+.collapsible-btn.gray-title {
+  color: #808080;
+}
+
+.collapsible-btn.gray-title:hover {
+  color: #666666;
+}
+
 .collapsible-btn .chevron-icon {
   font-size: 1rem;
   transition: transform 0.3s ease;
