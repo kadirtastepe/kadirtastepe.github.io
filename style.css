@@ -233,7 +233,7 @@ main {
 }
 
 .content-section p strong {
-  color: #4CAF50;
+  color: #000000;
   font-weight: 700;
 }
 
@@ -868,7 +868,7 @@ body.dark-mode .content-section p {
 }
 
 body.dark-mode .content-section p strong {
-  color: #66ff66;
+  color: #ffffff;
 }
 
 body.dark-mode .content-section a {
