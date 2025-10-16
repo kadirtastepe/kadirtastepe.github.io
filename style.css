@@ -99,12 +99,12 @@ main {
 }
 
 .profile-text {
-  background-color: #4CAF50;
-  color: white;
+  color: black;
   font-family: 'Brush Script MT', cursive;
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(2rem, 3vw, 2.5rem);
   padding: 1rem 2rem;
-  border-radius: 4px;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
 }
 
 /* ===== STICKY NAVIGATION ===== */
