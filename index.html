@@ -137,8 +137,8 @@
       <a href="#Publications" class="nav-link">Publications</a>
       <a href="#Talks" class="nav-link">Talks</a>
       <a href="#LectureNotes" class="nav-link">Lecture Notes</a>
-      <a href="#BirdJournal" class="nav-link">Bird Journal</a>
       <a href="#The_Road_So_Far" class="nav-link">The Road So Far</a>
+      <a href="#BirdJournal" class="nav-link">Bird Journal</a>
       <a href="#Contact" class="nav-link">Contact</a>
       <a href="https://kadirtastepe.github.io/CV.pdf" class="nav-link cv-link" target="_blank" rel="noopener noreferrer" aria-label="Download CV">CV</a>
       <button class="theme-toggle nav-theme-toggle" id="toggleDark" aria-label="Toggle dark mode">
@@ -230,6 +230,25 @@
       </ul>
         </section>
 
+        <!-- Section: The Road So Far -->
+        <section id="The_Road_So_Far" class="content-section">
+      <h2>The Road So Far</h2>
+      
+      <!-- View Toggle Buttons -->
+      <div class="view-toggle">
+        <button class="view-btn active" onclick="switchView('timeline')">Timeline View</button>
+        <button class="view-btn" onclick="switchView('gallery')">Gallery View</button>
+      </div>
+
+      <!-- Timeline View -->
+      <div class="timeline-view" id="timeline-view">
+        <div class="timeline" id="timeline-container"></div>
+      </div>
+
+      <!-- Gallery View -->
+      <div class="polaroid-gallery" id="gallery-view" style="display: none;"></div>
+        </section>
+
         <!-- Section: Bird Journal -->
         <section id="BirdJournal" class="content-section">
       <h2>Birdwatcher's Journal</h2>
@@ -283,25 +302,6 @@
           <figcaption>11.09.2022 - Larus canus (Mew Gull)</figcaption>
         </figure>
       </div>
-        </section>
-
-        <!-- Section: The Road So Far -->
-        <section id="The_Road_So_Far" class="content-section">
-      <h2>The Road So Far</h2>
-      
-      <!-- View Toggle Buttons -->
-      <div class="view-toggle">
-        <button class="view-btn active" onclick="switchView('timeline')">Timeline View</button>
-        <button class="view-btn" onclick="switchView('gallery')">Gallery View</button>
-      </div>
-
-      <!-- Timeline View -->
-      <div class="timeline-view" id="timeline-view">
-        <div class="timeline" id="timeline-container"></div>
-      </div>
-
-      <!-- Gallery View -->
-      <div class="polaroid-gallery" id="gallery-view" style="display: none;"></div>
         </section>
 
         <!-- Section: Contact -->
