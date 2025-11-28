@@ -4,7 +4,7 @@ const roadSoFarData = [
     year: '2025',
     image: 'pics/DESY_MCSchool.png',
     alt: 'Hamburg, Germany 2025 - DESY',
-    caption: 'Hamburg, Germany 2025 - DESY Monte Carlo School'
+    caption: 'Hamburg, Germany 2025 - DESY <br> Terascale Monte Carlo School'
   },
   {
     year: '2025',
