@@ -22,6 +22,22 @@ html {
   min-height: 100%;
 }
 
+/* Optimize background for mobile devices */
+@media (max-width: 768px) {
+  html {
+    background-size: auto 100%;
+    background-position: center top;
+  }
+}
+
+/* Optimize background for tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  html {
+    background-size: 100% auto;
+    background-position: center center;
+  }
+}
+
 /* Use scroll attachment by default for better mobile/tablet compatibility */
 body {
   background-attachment: scroll;
@@ -902,6 +918,22 @@ html.dark-mode {
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100%;
+}
+
+/* Optimize dark mode background for mobile devices */
+@media (max-width: 768px) {
+  html.dark-mode {
+    background-size: auto 100%;
+    background-position: center top;
+  }
+}
+
+/* Optimize dark mode background for tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  html.dark-mode {
+    background-size: 100% auto;
+    background-position: center center;
+  }
 }
 
 /* Only use fixed attachment on desktop devices in dark mode */
