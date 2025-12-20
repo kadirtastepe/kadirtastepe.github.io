@@ -17,15 +17,20 @@ body {
 html {
   background-image: url("pics/background_acc.png");
   background-size: cover;
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
+  min-height: 100%;
 }
 
-/* Fix for iOS/iPadOS devices - fixed backgrounds don't work well */
-@supports (-webkit-touch-callout: none) {
+/* Use scroll attachment by default for better mobile/tablet compatibility */
+body {
+  background-attachment: scroll;
+}
+
+/* Only use fixed attachment on desktop devices */
+@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
   html {
-    background-attachment: scroll;
+    background-attachment: fixed;
   }
 }
 
@@ -894,15 +899,15 @@ body.dark-mode {
 html.dark-mode {
   background-image: url("pics/negative.png");
   background-size: cover;
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
+  min-height: 100%;
 }
 
-/* Fix for iOS/iPadOS devices in dark mode */
-@supports (-webkit-touch-callout: none) {
+/* Only use fixed attachment on desktop devices in dark mode */
+@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
   html.dark-mode {
-    background-attachment: scroll;
+    background-attachment: fixed;
   }
 }
 
@@ -1036,35 +1041,8 @@ body.dark-mode .nav-container {
   }
 }
 
-/* Fix background for all tablets including iPad Air */
-@media (max-width: 1366px) and (hover: none) {
-  body {
-    background-attachment: scroll;
-    background-size: cover;
-    min-height: 100vh;
-  }
-  
-  body.dark-mode {
-    background-attachment: scroll;
-    background-size: cover;
-    min-height: 100vh;
-  }
-}
 
 @media (max-width: 768px) {
-  /* Fix background image for mobile and iPad */
-  body {
-    background-attachment: scroll;
-    background-size: cover;
-    min-height: 100vh;
-  }
-  
-  body.dark-mode {
-    background-attachment: scroll;
-    background-size: cover;
-    min-height: 100vh;
-  }
-  
   header {
     margin: 1rem;
     padding: 1rem;
