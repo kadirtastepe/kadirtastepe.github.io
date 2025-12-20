@@ -12,6 +12,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
+  background-repeat: no-repeat;
   line-height: 1.6;
   transition: background 1s, color 1s;
 }
@@ -874,6 +875,10 @@ footer {
 /* ===== DARK MODE STYLES ===== */
 body.dark-mode {
   background-image: url("pics/negative.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
 }
 
@@ -1008,6 +1013,19 @@ body.dark-mode .nav-container {
 }
 
 @media (max-width: 768px) {
+  /* Fix background image for mobile and iPad */
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    min-height: 100vh;
+  }
+  
+  body.dark-mode {
+    background-attachment: scroll;
+    background-size: cover;
+    min-height: 100vh;
+  }
+  
   header {
     margin: 1rem;
     padding: 1rem;
