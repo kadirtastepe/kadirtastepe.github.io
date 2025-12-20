@@ -15,6 +15,14 @@ body {
   background-repeat: no-repeat;
   line-height: 1.6;
   transition: background 1s, color 1s;
+  min-height: 100vh;
+}
+
+/* Fix for iOS/iPadOS devices - fixed backgrounds don't work well */
+@supports (-webkit-touch-callout: none) {
+  body {
+    background-attachment: scroll;
+  }
 }
 
 /* ===== HEADER ===== */
@@ -880,6 +888,14 @@ body.dark-mode {
   background-position: center;
   background-repeat: no-repeat;
   color: white;
+  min-height: 100vh;
+}
+
+/* Fix for iOS/iPadOS devices in dark mode */
+@supports (-webkit-touch-callout: none) {
+  body.dark-mode {
+    background-attachment: scroll;
+  }
 }
 
 body.dark-mode .sticky-nav {
