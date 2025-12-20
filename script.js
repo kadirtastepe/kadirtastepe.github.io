@@ -328,11 +328,13 @@ function initializeHamburgerMenu() {
 function initializeDarkModeToggle() {
   const toggle = document.getElementById('toggleDark');
   const body = document.body;
+  const html = document.documentElement;
 
   if (!toggle) return;
 
   toggle.addEventListener('click', function() {
     body.classList.toggle('dark-mode');
+    html.classList.toggle('dark-mode');
     
     // Toggle icon
     const icon = this.querySelector('i');
@@ -354,6 +356,7 @@ function initializeDarkModeToggle() {
   const darkModePreference = localStorage.getItem('darkMode');
   if (darkModePreference === 'true') {
     body.classList.add('dark-mode');
+    html.classList.add('dark-mode');
     const icon = toggle.querySelector('i');
     if (icon) {
       icon.classList.remove('bi-brightness-high-fill');

@@ -8,19 +8,23 @@ body {
   padding: 0;
   font-family: "Arial", Helvetica, sans-serif;
   font-size: clamp(16px, 2vw, 20px);
-  background-image: url("pics/background_acc.png");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
   line-height: 1.6;
   transition: background 1s, color 1s;
   min-height: 100vh;
 }
 
+/* Background on html element for zoom independence */
+html {
+  background-image: url("pics/background_acc.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* Fix for iOS/iPadOS devices - fixed backgrounds don't work well */
 @supports (-webkit-touch-callout: none) {
-  body {
+  html {
     background-attachment: scroll;
   }
 }
@@ -882,18 +886,22 @@ footer {
 
 /* ===== DARK MODE STYLES ===== */
 body.dark-mode {
+  color: white;
+  min-height: 100vh;
+}
+
+/* Dark mode background on html element */
+html.dark-mode {
   background-image: url("pics/negative.png");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  color: white;
-  min-height: 100vh;
 }
 
 /* Fix for iOS/iPadOS devices in dark mode */
 @supports (-webkit-touch-callout: none) {
-  body.dark-mode {
+  html.dark-mode {
     background-attachment: scroll;
   }
 }
