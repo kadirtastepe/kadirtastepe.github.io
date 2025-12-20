@@ -1012,6 +1012,21 @@ body.dark-mode .nav-container {
   }
 }
 
+/* Fix background for all tablets including iPad Air */
+@media (max-width: 1366px) and (hover: none) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    min-height: 100vh;
+  }
+  
+  body.dark-mode {
+    background-attachment: scroll;
+    background-size: cover;
+    min-height: 100vh;
+  }
+}
+
 @media (max-width: 768px) {
   /* Fix background image for mobile and iPad */
   body {
