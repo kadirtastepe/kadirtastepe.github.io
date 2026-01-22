@@ -15,7 +15,7 @@ body {
 
 /* Background on html element for zoom independence */
 html {
-  background-image: url("pics/background_acc.png");
+  background-image: url("pics/background_acc.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -913,7 +913,7 @@ body.dark-mode {
 
 /* Dark mode background on html element */
 html.dark-mode {
-  background-image: url("pics/negative.png");
+  background-image: url("pics/negative.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

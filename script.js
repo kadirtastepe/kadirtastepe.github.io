@@ -32,7 +32,7 @@ const roadSoFarData = [
   },
   {
     year: '2023',
-    image: 'pics/Bosseln.png',
+    image: 'pics/Bosseln.jpg',
     alt: 'Heidelberg, Germany 2023',
     caption: 'Heidelberg, Germany 2023 <br> Physikalishes Institut Heidelberg <br> Boßeln Day'
   },
