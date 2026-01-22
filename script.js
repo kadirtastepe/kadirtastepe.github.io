@@ -20,7 +20,7 @@ const roadSoFarData = [
   },
   {
     year: '2024',
-    image: 'pics/CHEP2024.png',
+    image: 'pics/CHEP2024.jpg',
     alt: 'Krakow, Poland 2024 - CHEP Conference',
     caption: 'Krakow, Poland 2024 - CHEP <br> (Computing in High Energy Physics)'
   },
