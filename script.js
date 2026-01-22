@@ -44,13 +44,13 @@ const roadSoFarData = [
   },
   {
     year: '2022',
-    image: 'pics/IPP.png',
+    image: 'pics/IPP.jpg',
     alt: 'Greifswald, Germany 2022 - Max Planck Institute IPP Summer University',
     caption: 'Greifswald, Germany 2022 - Max Planck Institute IPP Summer University for Plasma Physics and Fusion Research'
   },
   {
     year: '2020',
-    image: 'pics/pfbu2020.png',
+    image: 'pics/pfbu2020.jpg',
     alt: 'Istanbul, Turkey 2020 - Istanbul University Winter School',
     caption: 'Istanbul, Turkey 2020 - Istanbul University Computing Applications in Particle Physics Winter School'
   },
