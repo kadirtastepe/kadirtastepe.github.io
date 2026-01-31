@@ -727,7 +727,7 @@ main {
 .polaroid-caption p {
   margin: 0;
   font-size: clamp(0.9rem, 1.2vw, 1rem);
-  color: #111;
+  color: black;
 }
 
 /* ===== CONTACT SECTION ===== */
