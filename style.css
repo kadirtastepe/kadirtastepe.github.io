@@ -968,7 +968,7 @@ body.dark-mode .nav-theme-toggle:hover {
 
 body.dark-mode .content-section {
   background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+  color: black;
 }
 
 body.dark-mode .content-section h2 {
