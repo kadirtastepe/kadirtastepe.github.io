@@ -502,7 +502,7 @@ function initializeContactForm() {
     
     if (formAction.includes('YOUR_FORM_ID')) {
       // Fallback to mailto if Formspree is not configured
-      const mailtoLink = `mailto:ktastepe@cern.ch?subject=${encodeURIComponent('Portfolio Contact Message')}&body=${encodeURIComponent(
+      const mailtoLink = `mailto:kadir.tastepe@outlook.com?subject=${encodeURIComponent('Portfolio Contact Message')}&body=${encodeURIComponent(
         `From: ${name} (${email})\n\n${message}`
       )}`;
       

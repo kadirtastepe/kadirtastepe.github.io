@@ -2,9 +2,9 @@ BEGIN:VCARD
 VERSION:3.0
 FN:Kadir Murat Tastepe
 N:Tastepe;Kadir;Murat;;
-EMAIL;TYPE=INTERNET:ktastepe@cern.ch
+EMAIL;TYPE=INTERNET:kadir.tastepe@outlook.com
 URL:https://kadirtastepe.github.io/
-TITLE:M.Sc. Physics Candidate
+TITLE:M.Sc. Physics
 ORG:Ruprecht Karls University of Heidelberg
 NOTE:High Energy Physics researcher specializing in Charged Particle Track Reconstruction and Machine Learning
 X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/kadir-tastepe-99ab68197
